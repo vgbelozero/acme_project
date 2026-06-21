@@ -2,7 +2,7 @@
 from django import forms
 
 # Импортируем класс модели Birthday.
-from .models import Birthday
+from .models import Birthday, Congratulation
 
 # Импортируем класс ошибки валидации.
 from django.core.exceptions import ValidationError
@@ -52,3 +52,9 @@ class BirthdayForm(forms.ModelForm):
             raise ValidationError(
                 'Мы тоже любим Битлз, но введите, пожалуйста, настоящее имя!'
             )
+
+class CongratulationForm(forms.ModelForm):
+    
+    class Meta:
+        model = Congratulation
+        fields = ('text',)
